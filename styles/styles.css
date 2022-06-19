@@ -1,0 +1,20 @@
+.map {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.map path {
+  fill: #c6c6c6;
+  fill-opacity: 1;
+  stroke: #000000;
+  stroke-width: 0.28222218;
+  stroke-miterlimit: 4;
+  stroke-opacity: 1;
+  transition: fill 0.6s;
+}
+
+.map :hover {
+  fill: #000000;
+  cursor: pointer;
+}
