@@ -18,3 +18,124 @@
   fill: #000000;
   cursor: pointer;
 }
+
+.IntroductionModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.IntroductionModal :hover {
+  cursor: default;
+}
+.IntroductionModal-content {
+  width: 50%;
+  /* height: 100%; */
+  background-color: #fff;
+}
+
+.IntroductionModal-header,
+.IntroductionModal-footer {
+  padding: 10px;
+}
+
+.IntroductionModal-header,
+.IntroductionModal-footer,
+.IntroductionModal-body {
+  margin: 2% 5% 0 5%;
+}
+
+.IntroductionModal-title {
+  margin: 0;
+  text-align: left;
+}
+
+.IntroductionModal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.IntroductionModal-image {
+  width: 100%;
+  height: 30%;
+  border-radius: 5%;
+}
+
+.reactIconB path {
+  fill: GREY;
+  cursor: pointer;
+}
+
+.reactIconB :hover {
+  cursor: pointer;
+}
+
+.reactIconA path {
+  fill: red;
+  cursor: pointer;
+}
+
+.reactIconA :hover {
+  fill: red;
+  cursor: pointer;
+}
+
+/* .Tooltip-Wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.Tooltip-Tip {
+  position: absolute;
+  border-radius: 4px;
+  border-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px;
+  color: black;
+  background: white;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.Tooltip-Wrapper :hover {
+  cursor: pointer;
+}
+
+.Tooltip-Tip::before {
+  content: " ";
+  left: 50%;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.Tooltip-Tip.right {
+  border: solid black;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+}
+
+.Tooltip-Tip.right:hover {
+  cursor: pointer;
+}
+
+.Tooltip-Tip.right::before {
+  left: -6px;
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  border-right-color: black;
+} */
