@@ -4,7 +4,7 @@ import Styles from "./../../styles/styles.css";
 
 const App = () => (
   <div className="map">
-    <h1>US Travel Map</h1>
+    <h1>Explore the US</h1>
     <USMap />
   </div>
 );

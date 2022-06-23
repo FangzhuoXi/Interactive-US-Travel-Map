@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import { Tooltip } from "./Tooltip.jsx";
 import { usMap, labels } from "./../../public/svg/mapData.js";
@@ -9,18 +9,78 @@ import axios from "axios";
 const USMap = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentSelect, setCurrentSelect] = useState({});
+  const [wishList, setWishList] = useState([]);
+  const [BeenToList, setBeenToList] = useState([]);
+
+  const updateWishList = (id, data) => {
+    axios
+      .put(`/state/${id}`, data)
+      .then(() => {
+        getAllWishList();
+      })
+      .catch((err) => {
+        console.log("update list err", err);
+      });
+  };
+
+  const updateBeenToList = (id, data) => {
+    axios
+      .put(`/state/${id}`, data)
+      .then(() => {
+        getAllBeenToList();
+      })
+      .catch((err) => {
+        console.log("update list err", err);
+      });
+  };
 
   const openModal = (e) => {
-    console.log(e.target.id);
-    axios.get(`/state/${e.target.id}`).then((state) => {
-      setCurrentSelect(state.data);
-      setShowModal(true);
-    });
+    axios
+      .get(`/state/${e.target.id}`)
+      .then((state) => {
+        setCurrentSelect(state.data);
+        setShowModal(true);
+      })
+      .catch((err) => {
+        console.log("get one state err", err);
+      });
   };
 
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const getAllWishList = () => {
+    axios
+      .get("/wish")
+      .then((response) => {
+        console.log(response.data);
+        setWishList(response.data);
+      })
+      .catch((err) => {
+        console.log("get wish list err", err);
+      });
+  };
+
+  const getAllBeenToList = () => {
+    axios
+      .get("/beeto")
+      .then((response) => {
+        console.log(response.data);
+        setBeenToList(response.data);
+      })
+      .catch((err) => {
+        console.log("get BeenTo list err", err);
+      });
+  };
+
+  useEffect(() => {
+    getAllWishList();
+  }, []);
+
+  useEffect(() => {
+    getAllBeenToList();
+  }, []);
 
   return (
     <>
@@ -72,8 +132,44 @@ const USMap = () => {
         <IntroductionModal
           currentSelect={currentSelect}
           closeModal={closeModal}
+          updateWishList={updateWishList}
+          updateBeenToList={updateBeenToList}
+          getAllWishList={getAllWishList}
+          getAllBeenToList={getAllBeenToList}
         />
       )}
+      {BeenToList.map((place) => {
+        return (
+          <img
+            width="25"
+            height="25"
+            key={place.id}
+            // preserveAspectRatio="none"
+            src="/svg/HaveBeen.png"
+            style={{
+              position: "absolute",
+              left: `${place.left}%`,
+              top: `${place.top}%`,
+            }}
+          ></img>
+        );
+      })}
+      {wishList.map((place) => {
+        return (
+          <img
+            width="25"
+            height="25"
+            key={place.id}
+            // preserveAspectRatio="none"
+            src="/svg/Wish.png"
+            style={{
+              position: "absolute",
+              left: `${place.left}%`,
+              top: `${place.top}%`,
+            }}
+          ></img>
+        );
+      })}
     </>
   );
 };

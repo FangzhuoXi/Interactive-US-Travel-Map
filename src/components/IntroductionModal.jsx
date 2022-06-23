@@ -1,20 +1,35 @@
 import React, { useState } from "react";
 import { FaRegFlag, FaFlag, FaHeart, FaRegHeart } from "react-icons/fa";
 
-export const IntroductionModal = ({ currentSelect, closeModal }) => {
+export const IntroductionModal = ({
+  currentSelect,
+  closeModal,
+  updateWishList,
+  updateBeenToList,
+  getAllBeenToList,
+  getAllWishList,
+}) => {
   const [wish, setWish] = useState(currentSelect.wish);
   const [BeenTo, setBeenTo] = useState(currentSelect.BeenTo);
 
-  const addToList = (e) => {
-    console.log(e.target);
-    console.log(e.target.getAttribute("value"));
-    setWish(true);
-    // add to database
+  const addToBeenTo = () => {
+    setBeenTo(true);
+    updateBeenToList(currentSelect.id, { BeenTo: true });
   };
 
-  const deleteFromList = () => {
+  const addToWish = () => {
+    setWish(true);
+    updateWishList(currentSelect.id, { wish: true });
+  };
+
+  const deleteFromBeenTo = () => {
+    setBeenTo(false);
+    updateBeenToList(currentSelect.id, { BeenTo: false });
+  };
+
+  const deleteFromWish = () => {
     setWish(false);
-    // add to database
+    updateWishList(currentSelect.id, { wish: false });
   };
 
   return (
@@ -26,24 +41,27 @@ export const IntroductionModal = ({ currentSelect, closeModal }) => {
         <div className="IntroductionModal-header">
           <h2 className="IntroductionModal-title">
             About {currentSelect.name}
-            {wish ? (
-              <FaFlag className="reactIconA" onClick={deleteFromList} />
-            ) : (
-              <FaRegFlag className="reactIconB" onClick={addToList} />
-            )}
-            {BeenTo ? (
-              <FaHeart
-                className="reactIconA"
-                value="heart"
-                onClick={deleteFromList}
-              />
-            ) : (
-              <FaRegHeart
-                className="reactIconB"
-                value="heart"
-                onClick={addToList}
-              />
-            )}
+            <span className="FlagHeart">
+              {BeenTo ? (
+                <FaFlag className="reactIconG" onClick={deleteFromBeenTo} />
+              ) : (
+                <FaRegFlag className="reactIconB" onClick={addToBeenTo} />
+              )}
+              {"  "}
+              {wish ? (
+                <FaHeart
+                  className="reactIconA"
+                  value="wish"
+                  onClick={deleteFromWish}
+                />
+              ) : (
+                <FaRegHeart
+                  className="reactIconB"
+                  value="wish"
+                  onClick={addToWish}
+                />
+              )}
+            </span>
           </h2>
         </div>
         <div className="IntroductionModal-body">
@@ -53,7 +71,9 @@ export const IntroductionModal = ({ currentSelect, closeModal }) => {
           ></img>
           <br />
           <br />
-          {currentSelect.description}
+          {currentSelect.description.split("/n/n").map((p, i) => {
+            return <p key={i}>{p}</p>;
+          })}
         </div>
         <div className="IntroductionModal-footer">
           <button className="modalButton" onClick={closeModal}>

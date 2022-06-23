@@ -31,6 +31,8 @@ const stateSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  left: Number,
+  top: Number,
 });
 
 const State = mongoose.model("State", stateSchema);

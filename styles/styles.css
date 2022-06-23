@@ -1,11 +1,23 @@
+body {
+  background-color: #b8fff9;
+}
+
+h1 {
+  font-family: "Potta One", cursive;
+}
+
 .map {
-  width: 50%;
+  width: 60%;
   margin: auto;
   text-align: center;
+  position: relative;
+  border: 2px solid transparent;
+  font-family: "Poppins", sans-serif;
 }
 
 .map path {
   fill: #c6c6c6;
+  /* fill: #c6c6c6; */
   fill-opacity: 1;
   stroke: #000000;
   stroke-width: 0.28222218;
@@ -29,6 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .IntroductionModal :hover {
@@ -36,7 +49,8 @@
 }
 .IntroductionModal-content {
   width: 50%;
-  /* height: 100%; */
+  max-height: 80%;
+  overflow: scroll;
   background-color: #fff;
 }
 
@@ -54,6 +68,7 @@
 .IntroductionModal-title {
   margin: 0;
   text-align: left;
+  position: relative;
 }
 
 .IntroductionModal-body {
@@ -65,8 +80,14 @@
 
 .IntroductionModal-image {
   width: 100%;
-  height: 30%;
+  height: 20%;
   border-radius: 5%;
+}
+
+.FlagHeart {
+  position: absolute;
+  right: 0%;
+  font-size: 0.8em;
 }
 
 .reactIconB path {
@@ -85,6 +106,16 @@
 
 .reactIconA :hover {
   fill: red;
+  cursor: pointer;
+}
+
+.reactIconG path {
+  fill: limegreen;
+  cursor: pointer;
+}
+
+.reactIconG :hover {
+  fill: limegreen;
   cursor: pointer;
 }
 
