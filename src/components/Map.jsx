@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactTooltip from "react-tooltip";
-import { Tooltip } from "./Tooltip.jsx";
 import { usMap, labels } from "./../../public/svg/mapData.js";
 import { Path } from "./Path.jsx";
 import { IntroductionModal } from "./IntroductionModal.jsx";
@@ -144,6 +142,7 @@ const USMap = () => {
             width="25"
             height="25"
             key={place.id}
+            className="pins"
             // preserveAspectRatio="none"
             src="/svg/HaveBeen.png"
             style={{
@@ -160,6 +159,7 @@ const USMap = () => {
             width="25"
             height="25"
             key={place.id}
+            className="pins"
             // preserveAspectRatio="none"
             src="/svg/Wish.png"
             style={{

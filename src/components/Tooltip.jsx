@@ -11,20 +11,19 @@ export const Tooltip = (props) => {
   };
 
   const hideTip = () => {
-    // clearInterval(timeout);
     setTimeout(() => {
       setActive(false);
     }, 400);
   };
 
   return (
-    <g
+    <div
       className="Tooltip-Wrapper"
       onMouseEnter={showTip}
       onMouseLeave={hideTip}
     >
       {props.children}
-      {active && <g className={`Tooltip-Tip right`}>{props.content}</g>}
-    </g>
+      {active && <div className="Tooltip-Tip bottom">{props.content}</div>}
+    </div>
   );
 };

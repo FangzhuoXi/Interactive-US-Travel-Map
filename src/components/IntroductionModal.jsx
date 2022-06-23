@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaRegFlag, FaFlag, FaHeart, FaRegHeart } from "react-icons/fa";
+import { Tooltip } from "./Tooltip.jsx";
 
 export const IntroductionModal = ({
   currentSelect,
@@ -42,25 +43,23 @@ export const IntroductionModal = ({
           <h2 className="IntroductionModal-title">
             About {currentSelect.name}
             <span className="FlagHeart">
-              {BeenTo ? (
-                <FaFlag className="reactIconG" onClick={deleteFromBeenTo} />
-              ) : (
-                <FaRegFlag className="reactIconB" onClick={addToBeenTo} />
-              )}
+              <Tooltip content="Went">
+                {BeenTo ? (
+                  <FaFlag className="reactIconG" onClick={deleteFromBeenTo} />
+                ) : (
+                  <FaRegFlag className="reactIconB" onClick={addToBeenTo} />
+                )}
+              </Tooltip>
+
               {"  "}
-              {wish ? (
-                <FaHeart
-                  className="reactIconA"
-                  value="wish"
-                  onClick={deleteFromWish}
-                />
-              ) : (
-                <FaRegHeart
-                  className="reactIconB"
-                  value="wish"
-                  onClick={addToWish}
-                />
-              )}
+
+              <Tooltip content="Wish">
+                {wish ? (
+                  <FaHeart className="reactIconA" onClick={deleteFromWish} />
+                ) : (
+                  <FaRegHeart className="reactIconB" onClick={addToWish} />
+                )}
+              </Tooltip>
             </span>
           </h2>
         </div>
@@ -76,9 +75,9 @@ export const IntroductionModal = ({
           })}
         </div>
         <div className="IntroductionModal-footer">
-          <button className="modalButton" onClick={closeModal}>
-            Close
-          </button>
+          <div className="boat">
+            <img src="/svg/boat.png" onClick={closeModal} />
+          </div>
         </div>
       </div>
     </div>

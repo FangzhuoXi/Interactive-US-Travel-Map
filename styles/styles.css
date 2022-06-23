@@ -1,9 +1,10 @@
 body {
-  background-color: #b8fff9;
+  background-color: #d9bb84;
 }
 
 h1 {
   font-family: "Potta One", cursive;
+  color: #734226;
 }
 
 .map {
@@ -16,8 +17,7 @@ h1 {
 }
 
 .map path {
-  fill: #c6c6c6;
-  /* fill: #c6c6c6; */
+  fill: #d99f59;
   fill-opacity: 1;
   stroke: #000000;
   stroke-width: 0.28222218;
@@ -27,7 +27,7 @@ h1 {
 }
 
 .map :hover {
-  fill: #000000;
+  fill: #734226;
   cursor: pointer;
 }
 
@@ -51,7 +51,7 @@ h1 {
   width: 50%;
   max-height: 80%;
   overflow: scroll;
-  background-color: #fff;
+  background-color: #d9bb84;
 }
 
 .IntroductionModal-header,
@@ -100,26 +100,71 @@ h1 {
 }
 
 .reactIconA path {
-  fill: red;
+  fill: #ffd24c;
   cursor: pointer;
 }
 
 .reactIconA :hover {
-  fill: red;
+  fill: #ffd24c;
   cursor: pointer;
 }
 
 .reactIconG path {
-  fill: limegreen;
+  fill: RED;
   cursor: pointer;
 }
 
 .reactIconG :hover {
-  fill: limegreen;
+  fill: RED;
   cursor: pointer;
 }
 
-/* .Tooltip-Wrapper {
+.boat {
+  color: #000000;
+}
+
+.boat :hover {
+  cursor: pointer;
+  animation: shake 0.8s;
+  animation-iteration-count: 1;
+  /* transform: scale(1.5); */
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+}
+
+.pins {
+  animation: drop 1s forwards;
+}
+
+@keyframes drop {
+  20% {
+    transform: translate3d(0, 20px, 0) rotate3d(0, 0, 1, 0);
+  }
+  45% {
+    transform: translate3d(0, -20px, 0) rotate3d(0, 0, 1, 0);
+  }
+}
+
+.Tooltip-Wrapper {
   display: inline-block;
   position: relative;
 }
@@ -127,20 +172,21 @@ h1 {
 .Tooltip-Tip {
   position: absolute;
   border-radius: 4px;
-  border-color: black;
+  color: white;
+  background-color: #734226;
   left: 50%;
   transform: translateX(-50%);
-  padding: 6px;
-  color: black;
-  background: white;
+  /* padding: 6px; */
   z-index: 100;
   white-space: nowrap;
+  font-size: small;
 }
 
 .Tooltip-Wrapper :hover {
   cursor: pointer;
 }
 
+/* CSS border triangles */
 .Tooltip-Tip::before {
   content: " ";
   left: 50%;
@@ -153,20 +199,16 @@ h1 {
   margin-left: -6px;
 }
 
-.Tooltip-Tip.right {
-  border: solid black;
-  left: calc(100% + 10px);
-  top: 50%;
-  transform: translateX(0) translateY(-50%);
+.Tooltip-Tip.bottom {
+  border: solid #734226;
+  bottom: -25px;
 }
 
-.Tooltip-Tip.right:hover {
+.Tooltip-Tip.bottom:hover {
   cursor: pointer;
 }
 
-.Tooltip-Tip.right::before {
-  left: -6px;
-  top: 50%;
-  transform: translateX(0) translateY(-50%);
-  border-right-color: black;
-} */
+.Tooltip-Tip.bottom::before {
+  bottom: 100%;
+  border-bottom-color: #734226;
+}
