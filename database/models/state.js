@@ -27,10 +27,10 @@ const position = require("./../../public/svg/position");
 //     console.log(err);
 //   });
 
-State.findOneAndUpdate({ id: "WA" }, { top: 24 })
-  .then(() => {
-    console.log("success");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// State.findOneAndUpdate({ id: "WA" }, { top: 24 })
+//   .then(() => {
+//     console.log("success");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
