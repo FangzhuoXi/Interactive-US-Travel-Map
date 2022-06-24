@@ -10,7 +10,12 @@ An interactive US map where you can marked which states you have been to and whi
 
 ## Demo
 
-front.gif
+![US-MAP](https://github.com/FangzhuoXi/Interactive-US-Travel-Map/blob/main/front.gif)
+
+![US-MAP](https://github.com/FangzhuoXi/Interactive-US-Travel-Map/blob/main/flag.gif)
+
+![US-MAP](https://github.com/FangzhuoXi/Interactive-US-Travel-Map/blob/main/like.gif)
+
 
 ## Tech Stack
 
