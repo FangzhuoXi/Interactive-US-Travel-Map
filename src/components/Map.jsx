@@ -4,11 +4,9 @@ import { Path } from "./Path.jsx";
 import { IntroductionModal } from "./IntroductionModal.jsx";
 import axios from "axios";
 
-const USMap = () => {
+const USMap = ({ wishList, BeenToList, getAllWishList, getAllBeenToList }) => {
   const [showModal, setShowModal] = useState(false);
   const [currentSelect, setCurrentSelect] = useState({});
-  const [wishList, setWishList] = useState([]);
-  const [BeenToList, setBeenToList] = useState([]);
 
   const updateWishList = (id, data) => {
     axios
@@ -46,30 +44,6 @@ const USMap = () => {
 
   const closeModal = () => {
     setShowModal(false);
-  };
-
-  const getAllWishList = () => {
-    axios
-      .get("/wish")
-      .then((response) => {
-        console.log(response.data);
-        setWishList(response.data);
-      })
-      .catch((err) => {
-        console.log("get wish list err", err);
-      });
-  };
-
-  const getAllBeenToList = () => {
-    axios
-      .get("/beeto")
-      .then((response) => {
-        console.log(response.data);
-        setBeenToList(response.data);
-      })
-      .catch((err) => {
-        console.log("get BeenTo list err", err);
-      });
   };
 
   useEffect(() => {
