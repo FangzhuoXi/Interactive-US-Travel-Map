@@ -7,6 +7,11 @@ h1 {
   color: #734226;
 }
 
+h4 {
+  font-family: "Potta One", cursive;
+  color: #594b02;
+}
+
 .map {
   width: 60%;
   margin: auto;
@@ -211,4 +216,12 @@ h1 {
 .Tooltip-Tip.bottom::before {
   bottom: 100%;
   border-bottom-color: #734226;
+}
+
+.summary {
+  margin: auto;
+  width: 20%;
+  text-align: center;
+  border: solid 5px #734226;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
